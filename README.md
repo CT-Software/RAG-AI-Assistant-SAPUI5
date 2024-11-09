@@ -1,6 +1,6 @@
 # z_assist_chat
 AI assistant RAG-powered (SAP BTP)
-An SAP Fiori application
+An SAP Fiori application  
 
 ## Application Details
 |               |
