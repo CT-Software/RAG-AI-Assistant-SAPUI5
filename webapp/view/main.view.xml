@@ -1,0 +1,77 @@
+<mvc:View xmlns:core="sap.ui.core"
+    xmlns:mvc="sap.ui.core.mvc"
+    xmlns:f="sap.f"
+    xmlns="sap.m"
+    xmlns:u="sap.ui.unified" controllerName="zassist.zassistchat.controller.main" displayBlock="true">
+    <f:DynamicPage id="idDynamicPage" stickySubheaderProvider="iconTabBar" class="sapUiNoContentPaddingclass">
+        <f:title>
+            <f:DynamicPageTitle id="idDynamicPageTitle">
+                <f:heading>
+                    <Title id="idSmartAssistantTitle" text="Smart Assistant"/>
+                </f:heading>
+                <f:actions>
+                    <Button id="idDeleteAllButton" text="Delete all" type="Ghost" press="onDeleteAllButtonPress" activeIcon="false" enabled="{ui>/enabledDelButton}"/>
+                </f:actions>
+            </f:DynamicPageTitle>
+        </f:title>
+        <f:content>
+            <VBox id="idVBox" class="sapUiSmallMarginBegin sapUiSmallMarginEnd">
+                <ScrollContainer id="idScrollContainer" height="100%" width="100%" vertical="true" busy="{ui>/busy}">
+                    <VBox id="idMessagesVBox" items="{ path: 'ui>/chatbot/messages', templateShareable: true }">
+                        <VBox id="id0VBox">
+                            <!--  Assistant's message  -->
+                            <HBox id="idHBox" visible="{= ${ui>role} === 'assistant'}" class="chatBubbleContainer">
+                                <HBox id="id0HBox" backgroundDesign="Solid" class="chatBubble sapUiResponsivePadding sapUiAlignItemsCenter">
+                                    <core:Icon id="idIcon" src="sap-icon://ai" class="chatIcon sapUiTinyMarginEnd"/>
+                                    <core:HTML id="idContentHTML" content="{ui>content}" class="chatContent"/>
+                                </HBox>
+                            </HBox>
+                            <!--  User's message  -->
+                            <HBox id="id01HBox" visible="{= ${ui>role} === 'user'}" direction="RowReverse" class="sapUiSmallMarginTopBottom sapUiSmallMarginBegin">
+                                <VBox id="id01VBox">
+                                    <HBox id="id02HBox" visible="{= ${ui>content} !== '' }" direction="RowReverse" backgroundDesign="Solid" class="chatBubble sapUiResponsivePadding sapThemeBrand-asBackgroundColor">
+                                        <core:Icon id="id0Icon" class="sapUiTinyMarginBegin sapThemeTextInverted"/>
+                                        <Text id="idContent0Text" class="sapThemeTextInverted" text="{ui>content}"/>
+                                    </HBox>
+                                    <!--  Attachments  -->
+                                    <VBox id="idAttachmentsVBox" items="{ path: 'ui>attachments', templateShareable: true }" class="attachmentsWrapper">
+                                        <!-- sapUiSmallMarginEnd -->
+                                        <HBox id="id07HBox" class="sapUiTinyMarginTop sapUiNoMarginBegin">
+                                            <Link id="idFileNameAttachedLink" text="{ui>fileName}" target="_blank" href="{ui>fileUrl}" press="onFileNameLinkPress"/>
+                                        </HBox>
+                                    </VBox>
+                                </VBox>
+                            </HBox>
+                        </VBox>
+                    </VBox>
+                </ScrollContainer>
+                <FlexBox id="idPredefinedQuestionsFlexBox" class="sapUiSmallMarginBegin sapUiMediumMarginTop" alignItems="Center" wrap="Wrap" visible="{ui>/predefinedQuestionsVisible}">
+                    <Button id="idPredefinedQuestion1Button" text="{i18n>predefinedQuestion1}" class="sapUiTinyMarginEnd" press="onPredefinedQuestionPress" enabled="{ui>/enabledButton}"/>
+                    <Button id="idPredefinedQuestion2Button" text="{i18n>predefinedQuestion2}" class="sapUiTinyMarginEnd" press="onPredefinedQuestionPress" enabled="{ui>/enabledButton}"/>
+                    <Button id="idPredefinedQuestion3Button" text="{i18n>predefinedQuestion3}" class="sapUiTinyMarginEnd" press="onPredefinedQuestionPress" enabled="{ui>/enabledButton}"/>
+                </FlexBox>
+                <HBox id="id03HBox" class="sapUiSmallMarginTop sapUiSmallMarginBegin sapUiSmallMarginEnd" justifyContent="SpaceBetween" alignItems="Center">
+                    <HBox id="id04HBox" width="100%" class="textAreaWrapper" alignItems="Center">
+                        <TextArea id="idTxtInputTextArea" value="{ui>/chatbot/txtInput}" width="100%" growing="true" enabled="{ui>/textAreaEditable}" busyIndicatorDelay="0" placeholder="Message Smart Assistant" liveChange="onTxtInputTextAreaLiveChange">
+                            <layoutData>
+                                <FlexItemData id="idFlexItemData" growFactor="1"/>
+                            </layoutData>
+                        </TextArea>
+                        <Button id="idSendButton" icon="sap-icon://paper-plane" type="Emphasized" press="onButtonSendPress" class="sapUiTinyMarginBegin" enabled="{ui>/sendBtnEnabled}"/>
+                        <u:FileUploader id="idFileUploader" icon="sap-icon://attachment" iconOnly="true" multiple="true" class="sapUiTinyMarginBegin" enabled="{ui>/attachEnabled}" buttonOnly="true" name="myFileUpload" uploadUrl="upload/" tooltip="Upload your file to the local server" change="onFileUploaderChange"/>
+                    </HBox>
+                </HBox>
+                <HBox id="id05HBox" class=" sapUiSmallMarginBegin sapUiSmallMarginEnd">
+                    <VBox id="idSelectedFilesVBox" items="{ui>/selectedFiles}" width="100%">
+                        <items>
+                            <HBox id="id06HBox" class="sapUiNoMargin" alignItems="Center">
+                                <Link id="idFileNameLink" text="{ui>fileName}" target="_blank" href="{ui>fileUrl}" press="onFileNameLinkPress" enabled="{ui>/attachFileEnabled}"/>
+                                <Button id="idRemoveButton" icon="sap-icon://decline" type="Transparent" press="onButtonRemoveAttachmentPress" class="sapUiTinyMarginBegin" enabled="{ui>/attachFileEnabled}"/>
+                            </HBox>
+                        </items>
+                    </VBox>
+                </HBox>
+            </VBox>
+        </f:content>
+    </f:DynamicPage>
+</mvc:View>
