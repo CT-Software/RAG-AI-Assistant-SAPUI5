@@ -13,7 +13,7 @@ An SAP Fiori application
 |**Service Type**<br>None|
 |**Service URL**<br>N/A|
 |**Module Name**<br>z_assist_chat|
-|**Application Title**<br>Smart Assistant|
+|**Application Title**<br>AI Assistant|
 |**Namespace**<br>z_assist|
 |**UI5 Theme**<br>sap_horizon|
 |**UI5 Version**<br>1.129.2|

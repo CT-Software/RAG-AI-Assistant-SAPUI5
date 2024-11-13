@@ -7,7 +7,7 @@
         <f:title>
             <f:DynamicPageTitle id="idDynamicPageTitle">
                 <f:heading>
-                    <Title id="idSmartAssistantTitle" text="Smart Assistant"/>
+                    <Title id="idSmartAssistantTitle" text="AI Assistant"/>
                 </f:heading>
                 <f:actions>
                     <Button id="idDeleteAllButton" text="Delete all" type="Ghost" press="onDeleteAllButtonPress" activeIcon="false" enabled="{ui>/enabledDelButton}"/>
@@ -52,7 +52,7 @@
                 </FlexBox>
                 <HBox id="id03HBox" class="sapUiSmallMarginTop sapUiSmallMarginBegin sapUiSmallMarginEnd" justifyContent="SpaceBetween" alignItems="Center">
                     <HBox id="id04HBox" width="100%" class="textAreaWrapper" alignItems="Center">
-                        <TextArea id="idTxtInputTextArea" value="{ui>/chatbot/txtInput}" width="100%" growing="true" enabled="{ui>/textAreaEditable}" busyIndicatorDelay="0" placeholder="Message Smart Assistant" liveChange="onTxtInputTextAreaLiveChange">
+                        <TextArea id="idTxtInputTextArea" value="{ui>/chatbot/txtInput}" width="100%" growing="true" enabled="{ui>/textAreaEditable}" busyIndicatorDelay="0" placeholder="Message AI Assistant" liveChange="onTxtInputTextAreaLiveChange">
                             <layoutData>
                                 <FlexItemData id="idFlexItemData" growFactor="1"/>
                             </layoutData>

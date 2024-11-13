@@ -39,7 +39,7 @@ sap.ui.define([
 							"tiles": [{
 								"tileType": "sap.ushell.ui.tile.StaticTile",
 								"properties": {
-									"title": "Smart Assistant",
+									"title": "AI Assistant",
 									"targetURL": "#zassistzassistchat-display"
 								}
 							}]
@@ -55,7 +55,7 @@ sap.ui.define([
 								"semanticObject": "zassistzassistchat",
 								"action": "display",
 								"description": "An SAP Fiori application.",
-								"title": "Smart Assistant",
+								"title": "AI Assistant",
 								"signature": {
 									"parameters": {}
 								},
