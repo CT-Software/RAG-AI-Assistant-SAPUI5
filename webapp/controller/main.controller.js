@@ -268,7 +268,8 @@ sap.ui.define([
         var txtInput = oUiModel.getProperty("/chatbot/txtInput") || "";
         var aSelectedFiles = oUiModel.getProperty("/selectedFiles") || [];
 
-        var sUrl = "https://ragu-emlliano-turbulent-cat-mk.cfapps.us10-001.hana.ondemand.com/api/chat";
+        // var sUrl = "https://ragu-emlliano-turbulent-cat-mk.cfapps.us10-001.hana.ondemand.com/api/chat";
+        var sUrl = "https://ai-assistant-backend.cfapps.us10-001.hana.ondemand.com/api/chat";
 
         $.ajax({
           url: sUrl,
@@ -369,7 +370,8 @@ sap.ui.define([
         }
 
         $.ajax({
-          url: "https://ragu-emlliano-turbulent-cat-mk.cfapps.us10-001.hana.ondemand.com/api/embed_docs",
+          // url: "https://ragu-emlliano-turbulent-cat-mk.cfapps.us10-001.hana.ondemand.com/api/embed_docs",
+          url: "https://ai-assistant-backend.cfapps.us10-001.hana.ondemand.com/api/embed_docs",
           method: "PUT",
           success: function (resData) {
             if (txtInput) {
@@ -433,7 +435,8 @@ sap.ui.define([
           var formData = that._convertToBlob([aSelectedFiles[index]]);
 
           $.ajax({
-            url: "https://ragu-emlliano-turbulent-cat-mk.cfapps.us10-001.hana.ondemand.com/api/files",
+            // url: "https://ragu-emlliano-turbulent-cat-mk.cfapps.us10-001.hana.ondemand.com/api/files",
+            url: "https://ai-assistant-backend.cfapps.us10-001.hana.ondemand.com/api/files",
             method: "POST",
             data: formData,
             contentType: false,
